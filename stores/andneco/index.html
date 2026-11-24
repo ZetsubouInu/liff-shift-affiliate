@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>シフト提出</title>
+  <!-- ▼ 店舗ごとに書き換えるのはここだけ -->
+  <script>
+    window.SHIFT_CONFIG = {
+      storeName: 'あんどねこ',
+      liffId: '2012752823-x0dUGEbb',
+      gasUrl: 'https://script.google.com/macros/s/AKfycbz_1EEx6gnS_0QKs_IbhydMk7Q7pIBsNsvut_He5fycH4qO15lGxSfXrjY8hR7rq9_S/exec'
+    };
+  </script>
+  <!-- ▲ ここまで -->
+  <link rel="stylesheet" href="../../style.css?v=1">
+  <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <script src="../../app.js?v=1"></script>
+</head>
+<body>
+  <!-- 初期設定 -->
+  <section id="view-setup" class="setup hidden">
+    <div class="app-title" id="setup-store"></div>
+    <h1>はじめに源氏名を登録</h1>
+    <p>シフト表に表示される名前です。2回目からはこの画面は出ません。</p>
+    <form id="setup-form">
+      <input type="text" id="setup-name" maxlength="20" placeholder="源氏名" autocomplete="off">
+      <button class="btn primary" type="submit">登録する</button>
+    </form>
+  </section>
+
+  <!-- メイン -->
+  <section id="view-main" class="hidden">
+    <header class="app">
+      <div class="app-title" id="store-name"></div>
+      <div class="app-user">
+        <span class="name" id="user-name"></span>
+        <button class="link-btn" id="rename-btn">源氏名を変更</button>
+      </div>
+      <nav class="tabs">
+        <button class="tab active" data-tab="submit">シフト提出</button>
+        <button class="tab" data-tab="status">提出状況</button>
+      </nav>
+    </header>
+    <main id="content"></main>
+  </section>
+
+  <div class="loading" id="loading"><div class="spinner"></div><div id="loading-text">読み込み中…</div></div>
+  <div class="toast hidden" id="toast"></div>
+</body>
+</html>
